@@ -40,9 +40,9 @@ you should not have hardcoded API tokens and email addresses in your program
 unrecoverable errors should send an email with exception details 
 
 ## How to run the jar file
-** java -DtargetEmail={email id where email will be delivered} -jar ConsumeRestApi-1.0.0-SNAPSHOT.jar **
+** java -DtargetEmail={email id where email will be delivered} -jar emailfxdata-gradle-1.0.0-SNAPSHOT.jar **
 
-`example:- java -DtargetEmail=sagarika.padhy478@gmail.com -jar ConsumeRestApi-1.0.0-SNAPSHOT.jar `
+`example:- java -DtargetEmail=sagarika.padhy@gmail.com -jar emailfxdata-gradle-1.0.0-SNAPSHOT.jar `
 
 ## approach (gradle)
 This is a gradle project.
