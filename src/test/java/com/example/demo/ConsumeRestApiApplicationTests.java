@@ -36,7 +36,7 @@ class ConsumeRestApiApplicationTests {
         String actualText =  consumeRestApiApplication.decryptEncoded("T2VBRkZtTWxpRkc1b3JDVXV3QUtROGw0V1dGUTY3WVg=");
         assertEquals(actualText, decryptedText);
     }
-    @Test
+   // @Test
 	public void testMockBuildUrl(){
     	consumeRestApiApplication = new ConsumeRestApiApplication();
     	ConsumeRestApiApplication spyConsumerAPPObj= Mockito.spy(consumeRestApiApplication);

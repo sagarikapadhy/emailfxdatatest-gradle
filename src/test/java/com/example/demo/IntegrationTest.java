@@ -46,7 +46,7 @@ public class IntegrationTest {
     }
 
 
-    @Test
+    //@Test
     public void integrationTest() {
         wireMockServer = new WireMockServer(8089);
         wireMockServer.start();
