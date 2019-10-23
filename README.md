@@ -47,3 +47,6 @@ unrecoverable errors should send an email with exception details
 ## approach (gradle)
 This is a gradle project.
 writing csv file in classpath and deleting after email sent. Can stream the content. 
+
+## Sequence Diagram
+![alt text](http://url/to/img.png)
