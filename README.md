@@ -49,4 +49,4 @@ This is a gradle project.
 writing csv file in classpath and deleting after email sent. Can stream the content. 
 
 ## Sequence Diagram
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/sagarikapadhy/emailfxdatatest-gradle/blob/master/src/main/resources/sequence_diagram.png)
