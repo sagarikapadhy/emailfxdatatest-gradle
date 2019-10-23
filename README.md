@@ -39,6 +39,12 @@ you should not have hardcoded API tokens and email addresses in your program
 
 unrecoverable errors should send an email with exception details 
 
+
+## Sequence Diagram
+![alt text](https://github.com/sagarikapadhy/emailfxdatatest-gradle/blob/master/src/main/resources/sequence_diagram.png)
+
+
+
 ## How to run the jar file
 ** java -DtargetEmail={email id where email will be delivered} -jar emailfxdata-gradle-1.0.0-SNAPSHOT.jar **
 
@@ -48,5 +54,4 @@ unrecoverable errors should send an email with exception details
 This is a gradle project.
 writing csv file in classpath and deleting after email sent. Can stream the content. 
 
-## Sequence Diagram
-![alt text](https://github.com/sagarikapadhy/emailfxdatatest-gradle/blob/master/src/main/resources/sequence_diagram.png)
+
