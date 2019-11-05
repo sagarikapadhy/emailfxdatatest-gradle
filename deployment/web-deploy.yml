@@ -1,32 +1,32 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: saga-ns
+  name: acg-ns
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: saga-ns
-  name: saga-lb
+  namespace: acg-ns
+  name: acg-lb
 spec:
   type: LoadBalancer
   ports:
     - port: 80
   selector:
-    app: saga-stress
+    app: acg-stress
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: saga-ns
+  namespace: acg-ns
   labels:
-    app: saga-stress
-  name: saga-web
+    app: acg-stress
+  name: acg-web
 spec:
   selector:
     matchLabels:
-      app: saga-stress
-  replicas: 2
+      app: acg-stress
+  replicas: 1
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -35,27 +35,27 @@ spec:
   template:
     metadata:
       labels:
-        app: saga-stress
+        app: acg-stress
     spec:
       containers:
-      - image: sagarikapadhy/spring-email-scheduler:1.0.0
-        name: stresser
+        - image: sagarikapadhy/spring-email-scheduler:1.0.2
+          name: stresser
           ports:
-              - containerPort: 80
+            - containerPort: 80
           resources:
             requests:
               cpu: 0.2
-        ---
-        apiVersion: autoscaling/v1
-        kind: HorizontalPodAutoscaler
-        metadata:
-          name: saga-hpa
-          namespace: saga-ns
-        spec:
-          scaleTargetRef:
-            apiVersion: apps/v1
-            kind: Deployment
-            name: saga-web
-          minReplicas: 1
-          maxReplicas: 10
-          targetCPUUtilizationPercentage: 50
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: acg-hpa
+  namespace: acg-ns
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: acg-web
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
