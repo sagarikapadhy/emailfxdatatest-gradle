@@ -55,13 +55,15 @@ unrecoverable errors should send an email with exception details
 
 ## How to deploy this app as a container in cloud or on-prem kubernetes cluster
 ** 
+
+
 Step 1:- Build the docker image
----     docker build -t <reponame>/spring-boot-app:1.0.0 .
+---     "docker build -t <reponame>/spring-boot-app:1.0.0 ."
   
   
   
 Step 2:- Push the image to docker hub
----     docker push <reponame>/spring-boot-app:1.0.0
+---     "docker push <reponame>/spring-boot-app:1.0.0"
   
   
   
@@ -70,27 +72,29 @@ Step 3:- Create your kubernetes cluster either locally or in public cloud like A
 
 
 Step 4:- Check if nodes are up and running
----      kubectl get nodes
+---      "kubectl get nodes"
 
 
 Step 5:- Deploy in kuberenetes cluster using the deploymemt yml file
----      kubectl apply -f web-deploy.yml
+---      "kubectl apply -f web-deploy.yml"
 
 
 Step 6:- watch the deployment
----      kubectl get deploy --watch
+---      "kubectl get deploy --watch"
 
 
 Step 7:- expose the service through a node port 
----      kubectl apply -f web-nodeport.yml
+---      "kubectl apply -f web-nodeport.yml"
 
 
 Step 8:- expose it through a load balancer
----      kubectl apply -f web-lb.yml
+---      "kubectl apply -f web-lb.yml"
 
 
 Step 9:- check the service through CLI
----      kubectl get svc web-nodeport
+---      "kubectl get svc web-nodeport"
+
+
 **
 
 
