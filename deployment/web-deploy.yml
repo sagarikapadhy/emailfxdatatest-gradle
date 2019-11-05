@@ -1,23 +1,61 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: saga-ns
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: saga-ns
+  name: saga-lb
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: saga-stress
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-web
+  namespace: saga-ns
   labels:
-    customer: sagarika
+    app: saga-stress
+  name: saga-web
 spec:
   selector:
     matchLabels:
-      app: web
-  replicas: 3
+      app: saga-stress
+  replicas: 1
   strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: web
+        app: saga-stress
     spec:
       containers:
-      - image: sagarikapadhy/spring-email-scheduler
-        name: web-ctr
-        ports:
-        - containerPort: 8080
+      - image: sagarikapadhy/spring-email-scheduler:1.0.0
+        name: stresser
+          ports:
+              - containerPort: 80
+          resources:
+            requests:
+              cpu: 0.2
+        ---
+        apiVersion: autoscaling/v1
+        kind: HorizontalPodAutoscaler
+        metadata:
+          name: saga-hpa
+          namespace: saga-ns
+        spec:
+          scaleTargetRef:
+            apiVersion: apps/v1
+            kind: Deployment
+            name: saga-web
+          minReplicas: 1
+          maxReplicas: 10
+          targetCPUUtilizationPercentage: 50

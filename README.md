@@ -48,10 +48,6 @@ unrecoverable errors should send an email with exception details
 
 
 
-## How to run the jar file
-** java -DtargetEmail={email id where email will be delivered} -jar emailfxdata-gradle-1.0.0-SNAPSHOT.jar **
-
-`example:- java -DtargetEmail=sagarika.padhy@gmail.com -jar emailfxdata-gradle-1.0.0-SNAPSHOT.jar `
 
 ## How to deploy this app as a container in cloud or on-prem kubernetes cluster
 ** 
