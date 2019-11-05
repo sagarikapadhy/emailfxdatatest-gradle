@@ -77,6 +77,6 @@ Step 9:- check the service through CLI
 
 ## approach (gradle)
 This is a gradle project.
-writing csv file in classpath and deleting after email sent. Can stream the content. 
+writing csv file in classpath and deleting after email sent.
 
 
