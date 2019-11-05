@@ -40,7 +40,7 @@ you should not have hardcoded API tokens and email addresses in your program
 unrecoverable errors should send an email with exception details 
 
 ## How to run the jar in local machine
-** ./gradlew build && java -DtargetEmail=sagarika.padhy@gmail.com -jar build/libs/emailfxdata-gradle-1.0.0-SNAPSHOT.jar
+** ./gradlew build && java -DtargetEmail=xyz@gmail.com -jar build/libs/emailfxdata-gradle-1.0.0-SNAPSHOT.jar
 **
 
 ## Sequence Diagram
@@ -101,5 +101,8 @@ Step 9:- check the service through CLI
 ## approach (gradle)
 This is a gradle project.
 writing csv file in classpath and deleting after email sent.
+
+## Limitation
+Maximum 20 calls per day allowed to the 3rd party API.
 
 
